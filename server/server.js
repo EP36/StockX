@@ -8,14 +8,14 @@ const PORT = process.env.PORT || '3000';
 
 app.use(bodyParser.json());
 
-app.get('/api/getData', 
+app.get('/api/data', 
   getData, 
   getAvg, 
   (req, res) => {
     res.status(200).json(res.locals.data);
 })
 
-app.post('/api/addData', 
+app.post('/api/data', 
   addData,
   (req, res) => {
     res.sendStatus(200)
