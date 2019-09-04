@@ -16,7 +16,7 @@ console.log(process.env);
 
 if(process.env.NODE_ENV === 'development') {
   config.user = 'stockxadmin';
-  config.database = 'stockx';
+  config.database = 'stockxtts';
   config.password = 'admin';
   config.host = 'postgres-db';
   config.port = 5432;

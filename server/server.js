@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { getRatings }
+const { getData, getAvg, addData } = require('./db/pgController.js.js')
 
 const app = express();
 
@@ -8,12 +8,17 @@ const PORT = process.env.PORT || '3000';
 
 app.use(bodyParser.json());
 
-app.get('/api/getData', (req, res) => {
-  res.status(200)
+app.get('/api/getData', 
+  getData, 
+  getAvg, 
+  (req, res) => {
+    res.status(200).json(res.locals.data);
 })
 
-app.post('/api/addData', (req, res) => {
-  res.sendStatus(200)
+app.post('/api/addData', 
+  addData,
+  (req, res) => {
+    res.sendStatus(200)
 })
 
 // catch 404 and forward to error handler

@@ -1,6 +1,6 @@
 // for hosted postgres database via ElephantSQL
 const pg = require('pg');
-const conString = require('./elephanSqlLogin.js');
+const conString = require('./elephanSqlLogin.js.js');
 
 let client = new pg.Client(conString);
 client.connect(function(err) {
