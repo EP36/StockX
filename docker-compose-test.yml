@@ -1,0 +1,25 @@
+version: '3'
+services:
+  test:
+    image: ep/stockx-dev
+    container_name: "stockx-test"
+    ports: 
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    command: npm run test
+    depends_on:
+      - postgres-db-test
+  postgres-db-test:
+    image: ep/stockx-postgres
+    container_name: "stockx-test-database"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=stockxadmin
+      - POSTGRES_DB=stockxtts
+    volumes:
+      - test-db-volume:/var/lib/postgresql/data
+volumes:
+  node_modules:
+  test-db-volume:
