@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { getData, getAvg, addData } = require('./db/pgController.js.js')
+const { getData, getAvg, addData } = require('./db/pgController.js')
 
 const app = express();
 
